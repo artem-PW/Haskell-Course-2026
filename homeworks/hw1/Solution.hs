@@ -65,12 +65,14 @@ power b e = go e 1
 
 -- Exercise 8
 listMaxSeq :: [Int] -> Int
+listMaxSeq [] = error "empty list"
 listMaxSeq (x:xs) = go xs x
     where
         go [] acc = acc
         go (y:ys) acc = let m = max acc y in seq m (go ys m)
  
 listMaxBang :: [Int] -> Int
+listMaxBang [] = error "empty list"
 listMaxBang (x:xs) = go xs x
     where
         go [] !acc = acc
